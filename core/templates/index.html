@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Django1</title>
+    <link rel="shortcut icon" href="{% static 'images/html.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+    <center>
+    <h1>Meu Primeiro Projeto Django</h1>
+    <img src="{% static 'images/django-pony.png' %}"/>
+
+    <h2> {{ chave }} </h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produto in produtos %}
+            <tr>
+                <td><a href="{% url 'produto' produto.id %}" target="_blank">{{ produto.nome }}</a></td>
+                <td>{{ produto.preco }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button onclick="teste();">Clique-me</button>
+
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    </center>
+</body>
+</html>
